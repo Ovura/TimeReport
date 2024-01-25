@@ -1,0 +1,85 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <OutputType>WinExe</OutputType>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Update="Employees.cs">
+      <DependentUpon>TimeReportDb.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Project.cs">
+      <DependentUpon>TimeReportDb.tt</DependentUpon>
+    </Compile>
+    <Compile Update="sysdiagrams.cs">
+      <DependentUpon>TimeReportDb.tt</DependentUpon>
+    </Compile>
+    <Compile Update="TimeReportDb.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TimeReportDb.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Update="TimeReportDb.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TimeReportDb.tt</DependentUpon>
+    </Compile>
+    <Compile Update="TimeReportDb.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>TimeReportDb.edmx</DependentUpon>
+    </Compile>
+    <EntityDeploy Include="TimeReportDb.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TimeReportDb.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Update="TimeReportDb.edmx.diagram">
+      <DependentUpon>TimeReportDb.edmx</DependentUpon>
+    </None>
+    <None Update="Time_ReportDataSet.xsc">
+      <DependentUpon>Time_ReportDataSet.xsd</DependentUpon>
+    </None>
+    <None Update="Time_ReportDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Time_ReportDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="Time_ReportDataSet.xss">
+      <DependentUpon>Time_ReportDataSet.xsd</DependentUpon>
+    </None>
+    <None Update="Time_ReportDataSet1.xsc">
+      <DependentUpon>Time_ReportDataSet1.xsd</DependentUpon>
+    </None>
+    <None Update="Time_ReportDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Time_ReportDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="Time_ReportDataSet1.xss">
+      <DependentUpon>Time_ReportDataSet1.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TimeReportDb.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TimeReportDb.edmx</DependentUpon>
+      <LastGenOutput>TimeReportDb.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="TimeReportDb.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TimeReportDb.edmx</DependentUpon>
+      <LastGenOutput>TimeReportDb.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+    <PackageReference Include="EntityFramework" Version="6.4.4" />
+  </ItemGroup>
+</Project>
